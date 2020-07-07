@@ -17,7 +17,7 @@ def get_filters(city, month, day):
     print('Hello! Let\'s explore some US bikeshare data!')
 
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    while True:
+    while 1:
         city = input("Enter a city(Chicago, New York, Washington): ").lower()
         if city not in CITY_DATA:
             print("\nInvalid City! Please enter a valid city.\n")
@@ -25,7 +25,7 @@ def get_filters(city, month, day):
         else:
             break
 
-    while True:
+    while 1:
         time = input("Please choose a filtering method as month, day, both or none: ").lower()
         if time == 'month':
             month = input("Please enter a month(January, Feburary, March, April, May or June): ").lower()
@@ -80,35 +80,27 @@ def load_data(city, month, day):
 
     return df
 
-
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-
     # display the most common month
     common_month = df['month'].mode()[0]
     print(common_month)
 
-
     # display the most common day of week
     common_day_of_week = df['day_of_week'].mode()[0]
     print(common_day_of_week)
-
 
     # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     common_hour = df['hour'].mode()[0]
     print(common_hour)
 
-
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
-
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
@@ -132,7 +124,6 @@ def station_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -150,7 +141,6 @@ def trip_duration_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
@@ -167,7 +157,6 @@ def user_stats(df):
         print(gender)
     else:
         print("There is no gender information in this city.")
-
 
     # Display earliest, most recent, and most common year of birth
     if 'Birth_Year' in df:
@@ -187,7 +176,7 @@ def user_stats(df):
 
 def data(df):
     raw_data = 0
-    while True:
+    while 1:
         answer = input("Would like to see raw data?(Y/N): ").lower()
         if answer not in ['y', 'n']:
             answer = input("Invalid Entry! Please try again(Y/N): ").lower()
@@ -200,12 +189,11 @@ def data(df):
         elif answer == 'n':
             return
 
-
 def main():
     city = ""
     month = ""
     day = ""
-    while True:
+    while 1:
         city, month, day = get_filters(city, month, day)
         df = load_data(city, month, day)
 
@@ -218,7 +206,6 @@ def main():
         restart = input("Would you like to restart?(Y/N): ")
         if restart.lower() != 'y':
             break
-
 
 if __name__ == "__main__":
 	main()
