@@ -6,7 +6,7 @@ Explore US Bikeshare Data(Programming for Data Science  with Python Proeject)
 
 
 ### Description
-This program analyzes various of data related to bikeshare systems in Chicago, New York City, and Washington.
+This Python script analyzes variety of data related to bike share systems in Chicago, New York City, and Washington. Data will be imported through the csv files for each city. This script can be run on terminal, or Pycharm can be used as an alternative.
 
 ### Files used
 bikeshare.py, chicago.csv, new_york_city.csv, washington.csv
